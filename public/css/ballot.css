@@ -1,0 +1,85 @@
+
+.ballotInfoText {
+  background-color: white;
+  width: var(--left-width);
+  text-align: left;
+  border: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 0px 10px 0px 0px;
+}
+.ballotInfoText p {
+  padding: 5px;
+  font-size: 12px;
+}
+.ballotInfoOrderContatiner {
+  height: 100px;
+  width: var(--right-width);
+  display: flex;
+}
+.ballotInfoOrder{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.ballotInfoOrderName {
+  width: 36px;
+}
+.ballotInfoOrderName p{
+  transform: rotate(-90deg);
+  height: 0px;
+  width: 10px;
+  transform-origin: center bottom;
+}
+.ballotInfoOrderNumber {
+  width: 50%;
+  margin-top: 10px;
+  border-top: 1px solid black;
+}
+.ballotChoiceNameBox {
+  min-width: var(--left-width);
+  max-width: var(--left-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid black;
+  border-right: 3px solid black;
+  border-left: none;
+}
+.ballotChoiceName {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 95%;
+height: 90%;
+border: 1px solid black;
+border-radius: 10px;
+color: black;
+}
+
+
+.ballotChoicesBubblesBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
+}
+.ballotChoicesBubblesBox:before {
+  content: '';
+  padding-top: 60%;
+}
+.ballotChoicesBubble {
+  height: 85%;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.ballotChoicesBubble:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,0,.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,0,.5);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+}

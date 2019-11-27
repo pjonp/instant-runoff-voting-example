@@ -1,0 +1,9 @@
+[
+  {"id": 1, "name": "RED", "color": "#ff6666", "populartiy": 10},
+  {"id": 2, "name": "ORANGE", "color": "#ffc966", "populartiy": 10},
+  {"id": 3, "name": "YELLOW", "color": "#ffff66", "populartiy": 8},
+  {"id": 4, "name": "GREEN", "color": "#66ff66", "populartiy": 5},
+  {"id": 5, "name": "BLUE", "color": "#4d4dff", "populartiy": 7},
+  {"id": 6, "name": "INDIGO", "color": "#aa33ff", "populartiy": 1},
+  {"id": 7, "name": "VIOLET", "color": "#ea62ea", "populartiy": 1}
+]
