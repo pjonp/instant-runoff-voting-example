@@ -1,0 +1,91 @@
+:root{
+  --left-width: 25%;
+  --right-width: 75%;
+}
+*{
+  font-family: 'Anton', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  border-spacing: 0px;
+  box-sizing: border-box;
+  text-align: center;
+}
+body{
+  background: rgb(209,209,209);
+  background: radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(0,0,0,1) 100%);
+  color: black;
+
+}
+#contentContainer {
+  background-color: #f1fa3c;
+  width: 90vw;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  border-radius: 25px;
+}
+.contentTitle{
+
+}
+.contentInfo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100px;
+  margin-left: -1px;
+}
+
+.contentData {
+  background-color: white;
+  border-bottom: 4px solid black;
+  border-top: 4px solid black;
+  margin: -1px;
+
+}
+
+.containerRow {
+  display: flex;
+  width: 100%;
+  height: 55px;
+}
+.contentNav {
+
+}
+.contentNavStatus{
+
+}
+.contentNavButtonContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 55px;
+
+}
+.contentNavButton{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  padding: 0px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.contentNavButton:hover{
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,0,.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,0,.5);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+}
+@media only screen and (max-width: 500px) {
+  #contentContainer{
+    border-radius: 0px;
+    border-left: 0px solid black;
+    border-right: 0px solid black;
+    width: 99vw;
+
+  }
+}
