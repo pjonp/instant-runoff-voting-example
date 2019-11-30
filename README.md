@@ -9,3 +9,5 @@
 ##### Or reset all votes and start over
 ---
 After submitting your ballot the App will generate 99 random ballot with all choices and add them to yours. Move through the results with the navigation buttons, keyboard arrows, or swiping on mobile. The first color to reach a majority of 51 votes wins.
+
+![image](https://raw.githubusercontent.com/pjonp/instant-runoff-voting-example/master/public/example.gif)
