@@ -3,8 +3,9 @@ import Ballot from  './components/ballot';
 import Results from  './components/results';
 import randomVotes from './script/randomVotes';
 import calculateVotes from './script/calculateVotes';
-
 const inputData = require('./data/optionsData');
+
+let touchX = 0
 
 export default class App extends Component{
   constructor(props){
@@ -18,6 +19,9 @@ export default class App extends Component{
       maxRounds: 0,
       roundVisual: 3,
     };
+   this.pressKey = this.pressKey.bind(this);
+   this.touchStart = this.touchStart.bind(this);
+   this.touchEnd = this.touchEnd.bind(this);
    this.clickBubble = this.clickBubble.bind(this);
    this.clickName = this.clickName.bind(this);
    this.submitBallot = this.submitBallot.bind(this);
@@ -27,6 +31,37 @@ export default class App extends Component{
    this.moveBack = this.moveBack.bind(this);
    this.moveHome = this.moveHome.bind(this);
  }
+  componentDidMount() {
+    document.addEventListener('keydown', this.pressKey);
+    document.addEventListener('touchstart', this.touchStart);
+    document.addEventListener('touchend', this.touchEnd);
+ }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.pressKey);
+    document.addEventListener('touchstart', this.touchStart);
+    document.addEventListener('touchend', this.touchEnd);
+ }
+
+  pressKey(button) {
+    return button.keyCode === 37 && this.state.round > 0 ? this.moveBack()
+            : button.keyCode === 39 && this.state.round === 0 ? this.submitBallot()
+            : button.keyCode === 39 && this.state.round < this.state.maxRounds ? this.moveForward()
+            : null;
+   }
+
+  touchStart(e){
+     touchX = e.changedTouches[0].clientX
+   }
+  touchEnd(e){
+    let touchDelta = e.changedTouches[0].clientX-touchX;
+    let minDelta = 75;
+     console.log('touch end',touchDelta)
+     return touchDelta > minDelta && this.state.round > 0 ? this.moveBack()
+             : touchDelta < -minDelta && this.state.round === 0 ? this.submitBallot()
+             : touchDelta < -minDelta && this.state.round < this.state.maxRounds ? this.moveForward()
+             : null;
+
+   }
 
  clickBubble(input){
    let coords =  input.target.id.split(',')
@@ -79,14 +114,26 @@ export default class App extends Component{
    })
   };
 
- submitBallot = () => {
-   //calculate data
-   let makeVotes = []
+ submitBallot(){
    if(!this.state.allVotes[0]){  //if votes already counted, skip
      let userVotes = this.state.userVote.map(i => i[1])
-     for(let i = 0; i < 99; i++){
-       makeVotes.push(randomVotes(inputData))
-      }
+
+//make 99 votes
+  let makeVotes = []
+  let randVote = inputData.map(i => {
+     let popularityArr = []
+     for(let j = 0; j < i.popularity; j++){
+         popularityArr.push(i.id)
+       }
+    return (
+        popularityArr
+       )});
+
+  for(let i = 0; i < 99; i++){
+       makeVotes.push(randomVotes(randVote.flat(), inputData.length))
+        }
+//end collusion
+
       makeVotes.push(userVotes)
       calculateVotes(makeVotes, 1,(result, round) =>{
         this.setState({
@@ -94,12 +141,8 @@ export default class App extends Component{
         votechange: false,
         finalResults: result,
         maxRounds: round,
-        roundVisual: 1,
           });
-
-      console.log('RESULTS: ', result)
         })
-
   }
   else if(this.state.votechange){
     let updateVote = [...this.state.allVotes]
@@ -112,9 +155,7 @@ export default class App extends Component{
       votechange: false,
       finalResults: result,
       maxRounds: round,
-      roundVisual: 1,
         });
-      console.log('RESULTS Changed: ', result)
     })
   }
     this.moveForward()

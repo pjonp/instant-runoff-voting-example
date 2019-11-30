@@ -57,7 +57,7 @@ export default class Ballot extends Component {
 
         <div className='contentInfo'>
           <div className='ballotInfoText'>
-            <p>Rank up to 7 colors!</p>
+            <p>Rank up to 7 colors</p>
 
           </div>
           <div className='ballotInfoOrderContatiner'>

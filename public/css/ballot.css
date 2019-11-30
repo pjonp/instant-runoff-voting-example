@@ -49,17 +49,22 @@
   border-left: none;
 }
 .ballotChoiceName {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 95%;
-height: 90%;
-border: 1px solid black;
-border-radius: 10px;
-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 90%;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
-
+.ballotChoiceName:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(255,255,0,.5);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(255,255,0,.5);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,.5);
+}
 .ballotChoicesBubblesBox {
   display: flex;
   justify-content: center;

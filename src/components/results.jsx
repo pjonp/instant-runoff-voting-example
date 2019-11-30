@@ -17,7 +17,7 @@ export default class Results extends Component {
       width: 25+'%',
       fontSize: userVotes.length < 6 ? 14+'px' : 12+'px',
     }
-    let isElimanted = () => {
+  let isElimanted = () => {
     if(finalResults[round-1].filter( i => i.id === d[1])[0].eliminated > 0){
       return null
     } else return 'none'
@@ -33,13 +33,13 @@ export default class Results extends Component {
       </div> )
 })
   :
-  <div className='userVote'>
-    <div className='userVoteName'><p>YOU DID NOT VOTE</p></div>
-    <div className='userVoteNum'><p>SO TRUMP WINS</p></div>
+  <div className='userVote' style={ {padding: '3px'} }>
+    <div className='userVoteName'style={ {color: 'black', textShadow: 'none'} }><p>YOU DIDN'T</p></div>
+    <div className='userVoteNum' style={ {color: 'black', textShadow: 'none'} }><p>VOTE</p></div>
   </div>
 
   let buildBar = (roundResult) => {
-    let status = roundResult.winner ? 'WINS!' : roundResult.tie ? 'TIES!' : ''
+    let status = roundResult.winner ? 'WINS' : roundResult.tie ? 'TIE' : ''
 
     if(roundVisual === 3){ //round 3; update all bars
       let adders
@@ -67,7 +67,7 @@ export default class Results extends Component {
           )
         } else { //round 3 remove bar for eliminated
           return(
-            <div id={`${roundResult.id}bar`} className='graphBar' style={ {width: 70+'%', margin: 'auto', backgroundColor: inputData.filter(j => { return roundResult.id === j.id })[0].color} }>
+            <div id={`${roundResult.id}bar`} className='graphBar' style={ {width: 55+'%', margin: 'auto', backgroundColor: inputData.filter(j => { return roundResult.id === j.id })[0].color} }>
               <div className='graphBarVotes'>{ `${roundResult.votes} votes moved to next choice`}</div>
             </div>
           )
@@ -123,10 +123,7 @@ let display = () => {
   if(roundVisual === 1) return `${eliminatedNames} Eliminated This Round`
   if(roundVisual === 2) return `Next Choice Votes for ${eliminatedNames}`
   return `${eliminatedNames} Votes Moved`
-
   }
-
-
 
     return (
       <div id='resultsContainer'>
@@ -140,14 +137,15 @@ let display = () => {
 
           <div className='contentData' id='results'>
             {results}
+            <div className='resultsGoal' />
           </div>
 
           <div className='contentNav'>
             <h3 className='contentNavStatus'>{ display() }</h3>
             <div className='contentNavButtonContainer'>
               <span className='contentNavButton' onClick={this.props.moveBack}>BACK</span>
-              <span className='contentNavButton' onClick={this.props.moveHome}>BACK TO BALLOT</span>
-              {this.props.round < this.props.maxRounds && <span className='contentNavButton' onClick={this.props.moveForward}>NEXT</span> }
+              <span className='contentNavButton' onClick={this.props.moveHome}>CHANGE YOUR VOTE</span>
+              <span className='contentNavButton' onClick={this.props.moveForward} style={{zIndex: this.props.round < this.props.maxRounds ? '0' : '-1'}}>NEXT</span>
             </div>
           </div>
 
