@@ -14,7 +14,6 @@ body{
   background: rgb(209,209,209);
   background: radial-gradient(circle, rgba(209,209,209,1) 0%, rgba(0,0,0,1) 100%);
   color: black;
-
 }
 #contentContainer {
   background-color: #f1fa3c;
@@ -43,7 +42,7 @@ body{
   border-bottom: 4px solid black;
   border-top: 4px solid black;
   margin: -1px;
-
+  position: relative;
 }
 
 .containerRow {

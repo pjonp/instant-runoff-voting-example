@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/instant-runoff-voting-example/precache-manifest.ba2fe36ca06e3c2180894cee9a1c2ddc.js"
+  "/instant-runoff-voting-example/precache-manifest.8b4eff8a16d4aa7b511c5ad069b46987.js"
 );
 
 self.addEventListener('message', (event) => {
