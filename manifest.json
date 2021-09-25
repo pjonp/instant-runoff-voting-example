@@ -1,7 +1,7 @@
 {
   "short_name": "Instant Runoff Example",
   "name": "Ranked Choice Instant Runoff Voting Example",
-  "homepage": "https://pjonp.github.io/instant-runoff-voting-example",
+  "homepage": "http://pjonp.com",
   "icons": [
     {
       "src": "favicon.ico",
